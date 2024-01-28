@@ -18,6 +18,10 @@
 
 ## 安装
 
+NOTE: fzf-tab-source needs to be loaded after compinit, but before plugins which will wrap widgets, such as zsh-autosuggestions or fast-syntax-highlighting!!
+
+注意：fzf-tab-source 需要在 compinit 之后加载，但需要在 zsh-autosuggestions或fast-syntax-highlighting等插件之前加载!!
+
 ### arch 用户安装
 
 ```bash
@@ -25,9 +29,6 @@ yay -S fzf-tab-source
 # 添加加载脚本到~/.zshrc中
 source /opt/fzf-tab-source/fzf-tab.plugin.zsh
 ```
-
-NOTE: fzf-tab-source needs to be loaded after compinit, but before plugins which will wrap widgets, such as zsh-autosuggestions or fast-syntax-highlighting!!
-注意：fzf-tab-source 需要在 compinit 之后加载，但需要在 zsh-autosuggestions或fast-syntax-highlighting等插件之前
 
 ### 手动安装
 
