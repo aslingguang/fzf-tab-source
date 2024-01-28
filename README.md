@@ -27,7 +27,7 @@ NOTE: fzf-tab-source needs to be loaded after compinit, but before plugins which
 ```bash
 yay -S fzf-tab-source
 # 添加加载脚本到~/.zshrc中
-source /opt/fzf-tab-source/fzf-tab.plugin.zsh
+source /usr/share/zsh/plugins/fzf-tab-source/fzf-tab.plugin.zsh
 ```
 
 ### 手动安装
@@ -45,7 +45,7 @@ source /opt/fzf-tab-source/fzf-tab.plugin.zsh
 编辑`~/.zshrc`添加以下内容
 
 ```bash
-zinit light Aloxaf/fzf-tab
+zinit light aslingguang/fzf-tab-source
 ```
 
 ## 使用
