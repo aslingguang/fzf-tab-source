@@ -13,28 +13,6 @@ else
 	export FZF_DEFAULT_COMMAND='find . \( -path "*/.git" -o -path "*/.idea" -o -path "*/.vscode" -o -path "*/node_modules" -o -path "*/build" -o -path "*/dist" -o -path "*/vendor" -o -path "*/mnt" \) -prune -o -type f -o -type l -print'
 fi
 
-# 测试
-
-#FZF-TAB右侧窗口配置
-# local extract="
-# # trim input
-# local in=\${\${\"\$(<{f})\"%\$'\0'*}#*\$'\0'}
-# # get ctxt for current completion
-# local -A ctxt=(\"\${(@ps:\2:)CTXT}\")
-# # real path
-# local realpath=\${ctxt[IPREFIX]}\${ctxt[hpre]}\$in
-# realpath=\${(Qe)~realpath}
-# "
-# zstyle ':fzf-tab:complete:kill:argument-rest' extra-opts --preview=$extract'ps --pid=$in[(w)1] -o cmd --no-headers -w -w' --preview-window=down:3:wrap
-# zstyle ':fzf-tab:complete:(cd|ls|exa|bat|cat|nano|vi|vim):*' extra-opts --preview=$extract'ls -1 -A --color=always $realpath'
-# zstyle ':fzf-tab:complete:z:*' fzf-preview 'z -I $word'
-
-# aslas (date; ps -ef) |
-#   fzf --bind='ctrl-r:reload(date; ps -ef)' \
-#       --header=$'Press CTRL-R to reload\n\n' --header-lines=2 \
-#       --preview='echo {}' --preview-window=down,3,wrap \
-#       --layout=reverse --height=80% | awk '{print $2}' | xargs kill -9
-
 # my
 zstyle ':completion:complete:*:options' sort false
 zstyle ':fzf-tab:complete:*:*' query-string input
@@ -49,7 +27,6 @@ zstyle ':fzf-tab:*' prefix ''
 # zstyle ':fzf-tab:complete:*:*' fzf-preview 'zsh $PreViewFilePath ${(Q)realpath}'
 zstyle ':fzf-tab:complete:*:*' fzf-preview 'zsh $PreViewFilePath ${realpath}'
 zstyle ':fzf-tab:complete:*:*' fzf-flags --height=30
-zstyle ':fzf-tab:complete:yay:*' fzf-preview 'yay -Qi $word || yay -Si $word'
 zstyle ':fzf-tab:complete:pacman:*' fzf-preview 'pacman -Qi $word || pacman -Si $word'
 
 
@@ -92,6 +69,7 @@ zstyle ':fzf-tab:complete:git-checkout:*' fzf-preview \
 	*) git log --color=always $word ;;
 	esac'
 zstyle ':fzf-tab:complete:git:*' fzf-flags --preview-window=down:0:wrap
+
 # TLDR
 # zstyle ':fzf-tab:complete:tldr:*' fzf-preview 'tldr --color always $word'
 # zstyle ':fzf-tab:complete:tldr:argument-1' fzf-preview 'tldr --color always $word'
